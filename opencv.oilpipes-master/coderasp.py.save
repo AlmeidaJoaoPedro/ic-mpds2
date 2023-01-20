@@ -16,7 +16,7 @@ img_enc = str(arr)
 print(img_enc)
 
 # envia matriz para esp
-ser = serial.Serial('ttyUSB0', 9600)
+ser = serial.Serial('ttyUSB0', 
 ser.write(img_enc.encode('UTF-8'))
 
 os.remove("Foto.png")
