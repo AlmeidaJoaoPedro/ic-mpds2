@@ -12,11 +12,11 @@ if [ $# -eq 0 ]
 fi
 
 # Python 3.
-   python3 img-2-arr-2-img-detection.py
+  /ic-mpds2/opencv.oilpipes-master/coderasp.py
 
 # Calculation for the loop to be done every 30 minutes.
-sleep $((3*60))
-#sleep 2m 30s
+# sleep $((3*60))
+sleep 30s
 
 done
 
