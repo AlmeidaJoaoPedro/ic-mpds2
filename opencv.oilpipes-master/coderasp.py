@@ -13,7 +13,7 @@ ser = serial.Serial('/dev/ttyUSB0', 9600)
 #captura e armazenamento em uma variavel
 webcam = cv2.VideoCapture(0)
 ret, frame = webcam.read()
-os.chdir("ic-mpds2/opencv.oilpipes-master")
+# os.chdir("ic-mpds2/opencv.oilpipes-master")
 cv2.imwrite("Foto.png", frame)
 
 #img_path = r"ic-mpds2/opencv.oilpipes-master/Foto.png"
@@ -28,7 +28,7 @@ img_enc = str(arr)
 # envia matriz 
 
 ser.write(img_enc.encode('UTF-8'))
-os.remove("Foto.png")
+# os.remove("/ic-mpds2/Foto.png")
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
