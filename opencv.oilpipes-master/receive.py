@@ -12,6 +12,7 @@ while True:
         data = ser.readline().decode('utf-8').rstrip()
         # Print the received string
         print(data)
+    
 
 
 
