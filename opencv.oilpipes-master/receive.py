@@ -1,21 +1,42 @@
+import cv2 as cv
 import serial
-from PIL import Image
-import numpy as np
+#instalar essas bibs abaixo
 
-# Open the serial port
-ser = serial.Serial('/dev/ttyUSB1', 9600) # Replace 'COM3' with the name of your serial port
+# Define a porta serial e a velocidade de comunicação
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 
-# Wait for the RASPBERRY 1 to send data
-while True:
+a = 3
+
+
+while (a == 3):
     if ser.in_waiting > 0:
-        # Read the incoming string and decode it
-        data = ser.readline().decode('utf-8').rstrip()
-        # Print the received string
-        print(data)
+        x = ser.read()
+        y = x.decode('UTF-8')
+        z = str(y)
+        a = a + 1
     
 
 
+if str (z) == "1":
+    print("Vazamento")
 
-    # matrix = np.fromstring(data, dtype=np.uint8)
-    # new_img = Image.fromarray(matrix)
-    # new_img.save("leak-img.png")
+if str(z) == "0":
+    print("Sem vazamento")
+        
+
+
+# while True:
+#     data = ser.readline().decode("UTF-8").rstrip() # Read the data from the serial port and remove any trailing whitespace
+#     print(data) 
+
+
+#while True:
+    #Espera até receber dados serial
+    #if ser.in_waiting > 0:
+        # Lê a linha de dados recebida
+        #linha = ser.readline().decode('utf-8').rstrip()
+        # Imprime a linha recebida
+        #print(linha)
+        #img = imread(io.BytesIO(base64.b64decode(b64_string)))
+        #cv2_img = cv.cvtColor(img, cv.COLOR_RGB2BGR)
+        #cv.imwrite("reconstructed.png", cv2_img)
